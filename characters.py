@@ -2,7 +2,7 @@ import random
 from faker import Faker
 import file_operations
 
-skills = [
+SKILLS = [
     'Стремительный прыжок',
     'Электрический выстрел',
     'Ледяной удар',
@@ -12,7 +12,7 @@ skills = [
     'Ледяной выстрел',
     'Огненный заряд'
 ]
-runic_alphabet = {
+RUNIC_ALPHABET = {
     'а': 'а͠', 'б': 'б̋', 'в': 'в͒͠',
     'г': 'г͒͠', 'д': 'д̋', 'е': 'е͠',
     'ё': 'ё͒͠', 'ж': 'ж͒', 'з': 'з̋̋͠',
@@ -37,7 +37,7 @@ runic_alphabet = {
     'Э': 'Э͒͠͠', 'Ю': 'Ю̋͠', 'Я': 'Я̋',
     ' ': ' '
 }
-runic_skills = [
+RUNIC_SKILLS = [
     'С͒т͒͒р̋̋͠͠е͠͠м͒͠ит͒͒е͠͠л̋͠ь̋н͒'
     'ы̋̋͠͠й͒͠ п̋͠р̋̋͠͠ы̋̋͠͠ж͒о̋к̋̋',
     'Э͒͠͠л̋̋͠͠е͠͠͠к̋̋̋̋т͒͒р̋̋͠͠ич̋͠е͠͠͠с͒͒к̋̋̋̋ий'
@@ -50,17 +50,17 @@ runic_skills = [
 ]
 
 
-def convert_and_add_scills(skill):
+def convert_and_add_scill(skill):
     for word in skill:
-        skill = skill.replace(word, runic_alphabet[word])
-    runic_skills.append(skill)
-    return runic_skills
+        skill = skill.replace(word, RUNIC_ALPHABET[word])
+    RUNIC_SKILLS.append(skill)
+    return RUNIC_SKILLS
 
 
 def main():
     fake = Faker('ru_RU')
     for n in range(1, 11):
-        random_skills = random.sample(runic_skills, 3)
+        random_skills = random.sample(RUNIC_SKILLS, 3)
         content = {
             'first_name': fake.first_name(),
             'last_name': fake.last_name(),
