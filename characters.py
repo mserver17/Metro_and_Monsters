@@ -1,3 +1,20 @@
+import os
+
+os.makedirs('карточки игроков', exist_ok=True)
+
+
+# Путь к каталогу с карточками игроков
+cards_directory = 'карточки игроков'
+
+# Получаем список файлов в каталоге
+files_in_directory = os.listdir(cards_directory)
+
+# Печатаем список файлов
+print("Список файлов в каталоге карточек игроков:")
+for file_name in files_in_directory:
+    print(file_name)
+
+
 import random
 from faker import Faker
 import file_operations
@@ -95,7 +112,7 @@ def convert_to_runic(skills):
 def main():
     fake = Faker('ru_RU')
     runic_skills = convert_to_runic(SKILLS)
-    for n in range(1, 11):
+    for n in range(1, 10):
         random_skills = random.sample(runic_skills, 3)
         content = {
             'first_name': fake.first_name(),
